@@ -213,9 +213,8 @@ public class ASTUtil {
 			int fromIndex = contentString.indexOf("package");
 			String packageString = contentString.substring(fromIndex+8, contentString.indexOf(";", fromIndex));
 			packageString = packageString.replace(".", "/");
-			String path = instance.getFileName();
+			String path = instance.getFileName().replace("\\", "/");;
 			String unitName = path.substring(path.indexOf(packageString));
-			unitName = unitName.replace("\\", "/");
 			unitName = "/" + unitName;
 			
 			parser.setProject(project);
